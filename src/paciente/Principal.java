@@ -1,4 +1,4 @@
-package Paciente;
+package paciente;
 
 public class Principal {
 
