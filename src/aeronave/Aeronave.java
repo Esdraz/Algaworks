@@ -2,14 +2,24 @@ package aeronave;
 
 public class Aeronave {
 
-    int totalAssentos;
-    int assentosReservados;
+    int totalAssentosNormais;
+    int totalAssentosEspeciais;
+    int assentosNormaisReservados;
+    int assentosEspeciaisReservados;
 
-    void reservarAssentos(int numeroAssentos) {
-        assentosReservados += numeroAssentos;
+    //Sobrecarga de métodos permite a criação de vários métodos com o mesmo nome,
+    // mas com parâmetros diferentes.
+    void reservarAssentos(int assentos) {
+        this.assentosNormaisReservados += assentos;
+    }
+
+    void reservarAssentos(int assentosNormais, int assentosEspeciais) {
+        this.assentosNormaisReservados += assentosNormais;
+        this.assentosEspeciaisReservados += assentosEspeciais;
     }
 
     int calcularAssentosDisponiveis() {
-        return totalAssentos - assentosReservados;
+        return totalAssentosNormais - assentosNormaisReservados
+                + totalAssentosEspeciais - assentosEspeciaisReservados;
     }
 }
